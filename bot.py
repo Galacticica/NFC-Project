@@ -9,4 +9,10 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online)
     print('Online!')
 
+@client.command()
+async def testbot(ctx):
+    await ctx.send("The bot is working :)")
+
+
+
 client.run("MTI4Mjc5NTI1MDMyMTk4MTU5Mw.Gq_MXq.bx9FWu9G6z8nuyDIf0K5LgK4XfwkXMnoT2o100")
