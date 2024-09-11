@@ -1,13 +1,16 @@
 import discord
 from discord.ext.commands import Bot
 from discord.ext import commands, tasks
+from musicbot import MusicCommands
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix = '!',intents=intents)
 
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online)
-    print('Online!')
+    print(f'Logged in as {client.user}')
+
+client.add_cog(MusicCommands(client))
 
 @client.command()
 async def testbot(ctx):
