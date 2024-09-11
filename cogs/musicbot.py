@@ -11,6 +11,10 @@ class MusicCommands(commands.Cog):
         self.client = client
         self.queue = []
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print (f"{__name__} is online!")
+
     @commands.command()
     async def play(self, ctx, *, search):
         voice_channel = ctx.author.voice.channel if ctx.author.voice else None
@@ -45,3 +49,7 @@ class MusicCommands(commands.Cog):
         if ctx.voice_client and ctx.voice_client.is_playing():
             ctx.voice_client.stop()
             await ctx.send("Skipped")
+
+
+async def setup(client):
+    await client.add_cog(MusicCommands(client))
