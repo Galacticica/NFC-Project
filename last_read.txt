@@ -9,22 +9,31 @@ Standard   : ISO 14443-A part 3
 UID        : 04 05 A2 37 7E 61 80   (7 bytes)
 
 -- NTAG215 pages (4 bytes each) --
+  [waiting] Failed to transmit with protocol T1. No media in drive. : No media in drive.  (0x00000458)
+  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
+========================================================================
+ATR        : 3B 8F 80 01 80 4F 0C A0 00 00 03 06 03 00 03 00 00 00 00 68
+Card type  : MIFARE Ultralight
+Standard   : ISO 14443-A part 3
+UID        : 04 05 A2 37 7E 61 80   (7 bytes)
+
+-- NTAG215 pages (4 bytes each) --
   page   0 | 04 05 A2 2B | ...+
   page   1 | 37 7E 61 80 | 7~a.
   page   2 | A8 48 00 00 | .H..
   page   3 | E1 10 3E 00 | ..>.
-  page   4 | 03 15 D1 01 | ....
-  page   5 | 11 55 04 72 | .U.r
+  page   4 | 03 2C D1 01 | .,..
+  page   5 | 28 55 02 72 | (U.r
   page   6 | 65 61 67 61 | eaga
   page   7 | 6E 7A 69 65 | nzie
   page   8 | 72 6B 65 2E | rke.
-  page   9 | 63 6F 6D FE | com.
-  page  10 | 00 00 00 00 | ....
-  page  11 | 00 00 00 00 | ....
-  page  12 | 00 00 00 00 | ....
-  page  13 | 00 00 00 00 | ....
-  page  14 | 00 00 00 00 | ....
-  page  15 | 00 00 00 00 | ....
+  page   9 | 63 6F 6D 2F | com/
+  page  10 | 64 65 76 65 | deve
+  page  11 | 6C 6F 70 6D | lopm
+  page  12 | 65 6E 74 2D | ent-
+  page  13 | 70 6F 72 74 | port
+  page  14 | 66 6F 6C 69 | foli
+  page  15 | 6F 2F FE 00 | o/..
   page  16 | 00 00 00 00 | ....
   page  17 | 00 00 00 00 | ....
   page  18 | 00 00 00 00 | ....
@@ -153,18 +162,18 @@ UID        : 04 05 A2 37 7E 61 80   (7 bytes)
 
   +-----------------------------+
   | CARD HAS DATA               |
-  | 21 bytes of NDEF content.   |
+  | 44 bytes of NDEF content.   |
   +-----------------------------+
 
--- NDEF message (21 bytes) --
+-- NDEF message (44 bytes) --
 
   record 1
     TNF     : 0x01 (NFC Forum well-known)
     type    : U  [55]
-    uri     : https://reaganzierke.com
+    uri     : https://www.reaganzierke.com/development-portfolio/
 ========================================================================
 
 This output was also saved to:
-  C:\Users\reaga\OneDrive\Desktop\NFC\last_read.txt
+  C:\Users\reaga\Desktop\NFC-Project\last_read.txt
 
 Press Enter to close...

@@ -1,17 +1,15 @@
 @echo off
 REM Double-click this to read an NFC card.
-REM It pins the exact Python that has pyscard installed, so it does not
-REM matter what interpreter an editor happens to be configured with.
+REM
+REM   Read NFC Card.bat --watch       keep reading cards until closed
+REM   Read NFC Card.bat --keys-only   UID and card type only, no memory dump
+REM
+REM _launch.bat finds whatever Python is installed on this machine, so no
+REM interpreter path is hardcoded and this folder works on any computer.
 
-cd /d "%~dp0"
-
-echo Starting NFC reader...
+setlocal
 echo.
+echo  Starting NFC reader...
 
-"C:\Users\reaga\AppData\Local\Microsoft\WindowsApps\python.exe" -u nfc_read.py %*
-
-echo.
-echo ------------------------------------------------------------
-echo Finished. Results were also saved to last_read.txt
-echo ------------------------------------------------------------
-pause
+set "NFC_SCRIPT=nfc_read.py"
+call "%~dp0_launch.bat" %*
