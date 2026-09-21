@@ -1,51 +1,39 @@
-URL to write : https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing
+URL to write : https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK
 Prefix code  : 0x04 (https://)
-NDEF record  : D1 01 59 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 30 5A 6B 7A 65 72 76 6A 75 69 47 39 47 4F 4B 30 6A 34 67 74 74 71 36 55 58 6B 73 52 6A 53 54 4A 59 79 36 41 30 47 58 4D 61 46 77 2F 65 64 69 74 3F 75 73 70 3D 73 68 61 72 69 6E 67
-Bytes to tag : 96 (24 pages, starting at page 4)
+NDEF record  : D1 01 29 55 04 79 6F 75 74 75 2E 62 65 2F 64 51 77 34 77 39 57 67 58 63 51 3F 73 69 3D 44 78 66 66 6B 38 70 33 58 70 63 77 6E 72 73 4B
+Bytes to tag : 48 (12 pages, starting at page 4)
 
 Using reader : ACS ACR1552 1S CL Reader PICC 0
 
 Present the card to the reader...
   [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
 Tag          : NTAG215 (135 pages)
-UID          : 04 63 4E 39 7E 61 80
+UID          : 04 D5 16 38 7E 61 80
 Capability   : E1 10 3E 00
 Usable space : 496 bytes
 
 Writing...
-  page   4 <- 03 5D D1 01
-  page   5 <- 59 55 04 64
-  page   6 <- 6F 63 73 2E
-  page   7 <- 67 6F 6F 67
-  page   8 <- 6C 65 2E 63
-  page   9 <- 6F 6D 2F 64
-  page  10 <- 6F 63 75 6D
-  page  11 <- 65 6E 74 2F
-  page  12 <- 64 2F 31 30
-  page  13 <- 5A 6B 7A 65
-  page  14 <- 72 76 6A 75
-  page  15 <- 69 47 39 47
-  page  16 <- 4F 4B 30 6A
-  page  17 <- 34 67 74 74
-  page  18 <- 71 36 55 58
-  page  19 <- 6B 73 52 6A
-  page  20 <- 53 54 4A 59
-  page  21 <- 79 36 41 30
-  page  22 <- 47 58 4D 61
-  page  23 <- 46 77 2F 65
-  page  24 <- 64 69 74 3F
-  page  25 <- 75 73 70 3D
-  page  26 <- 73 68 61 72
-  page  27 <- 69 6E 67 FE
+  page   4 <- 03 2D D1 01
+  page   5 <- 29 55 04 79
+  page   6 <- 6F 75 74 75
+  page   7 <- 2E 62 65 2F
+  page   8 <- 64 51 77 34
+  page   9 <- 77 39 57 67
+  page  10 <- 58 63 51 3F
+  page  11 <- 73 69 3D 44
+  page  12 <- 78 66 66 6B
+  page  13 <- 38 70 33 58
+  page  14 <- 70 63 77 6E
+  page  15 <- 72 73 4B FE
 
 Verifying by reading the tag back...
-  raw bytes  : 03 5D D1 01 59 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 30 5A 6B 7A 65 72 76 6A 75 69 47 39 47 4F 4B 30 6A 34 67 74 74 71 36 55 58 6B 73 52 6A 53 54 4A 59 79 36 41 30 47 58 4D 61 46 77 2F 65 64 69 74 3F 75 73 70 3D 73 68 61 72 69 6E 67 FE
-  decoded    : https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing
+  raw bytes  : 03 2D D1 01 29 55 04 79 6F 75 74 75 2E 62 65 2F 64 51 77 34 77 39 57 67 58 63 51 3F 73 69 3D 44 78 66 66 6B 38 70 33 58 70 63 77 6E 72 73 4B FE
+  decoded    : https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK
 
-  +-----------------------------------------------------------------------------------------------------------------------------------------+
-  | SUCCESS - TAG READY                                                                                                                     |
-  | Tap it with a phone and it will open https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing   |
-  +-----------------------------------------------------------------------------------------------------------------------------------------+
+  +-----------------------------------------------------------------------------------------+
+  | SUCCESS - TAG READY                                                                     |
+  | Tap it with a phone and it will open https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK   |
+  +-----------------------------------------------------------------------------------------+
 
 This output was also saved to:
   C:\Users\reaga\OneDrive\Desktop\NFC-Project\last_write.txt
