@@ -9,13 +9,18 @@ one with a phone offers to open the site.
 ## Quick start
 
 1. Plug the reader in. Windows installs a PC/SC driver for it automatically.
-2. Double-click **`Read NFC Card.bat`** and hold a tag on the reader.
+2. Open the **`Python Scripts`** folder, double-click **`Read NFC Card.bat`**
+   and hold a tag on the reader.
 
 The first run offers to install `pyscard` if it is missing. Everything printed
-is also saved to a `.txt` file in this folder, so the output is still there
+is also saved to a `.txt` file in `Python Scripts`, so the output is still there
 after the window closes.
 
 ## What is here
+
+Everything below lives in the `Python Scripts` folder, along with the
+`last_*.txt` logs and `backup_*.txt` dumps the scripts create. The `.bat`
+files must stay in the same folder as the `.py` files.
 
 | File | Purpose |
 | --- | --- |
@@ -29,7 +34,9 @@ after the window closes.
 | `nfc_emv.py` | Read the public EMV data on a contactless bank card. |
 | `nfc_backup.py` | Dump a tag to a file, restore it, or compare against a dump. |
 | `_launch.bat` | Shared helper: finds Python, checks `pyscard`, runs a script. |
-| `outdated/` | Unrelated older project kept in the repo; ignore it. |
+
+`outdated/` at the top level is an unrelated older project kept in the repo;
+ignore it.
 
 ## Requirements
 
@@ -41,7 +48,7 @@ after the window closes.
 
 There is no hardcoded interpreter path. `_launch.bat` looks for, in order:
 
-1. `.venv\Scripts\python.exe` in this folder, if you made a virtualenv
+1. `.venv\Scripts\python.exe` in `Python Scripts`, if you made a virtualenv
 2. `py -3` (the Windows Python launcher)
 3. `python`, then `python3` on `PATH`
 
@@ -55,6 +62,7 @@ it, and the scripts would silently never run.
 To use a virtualenv instead of a system Python:
 
 ```bat
+cd "Python Scripts"
 py -3 -m venv .venv
 .venv\Scripts\python -m pip install pyscard
 ```
@@ -162,7 +170,7 @@ treat the tag:
 ```
 
 That `3E` is what identifies the chip. The script looks it up in `NTAG_SIZES`
-in [`nfc_read.py`](nfc_read.py) — `0x3E` means NTAG215, 135 pages — and that
+in [`nfc_read.py`](Python%20Scripts/nfc_read.py) — `0x3E` means NTAG215, 135 pages — and that
 is also how it knows where to stop dumping. Read past the last page and these
 tags silently wrap back to page 0, so a dump that did not know the real size
 would end with a phantom copy of page 0.
@@ -320,6 +328,8 @@ target is read back afterwards to check every page.
 - To undo: `py -3 nfc_backup.py --restore backup_<target UID>.txt`
 
 ## Backing up
+
+Run these from inside the `Python Scripts` folder.
 
 Take a backup before writing to a card you care about.
 
