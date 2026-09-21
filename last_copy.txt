@@ -1,0 +1,60 @@
+Using reader : ACS ACR1552 1S CL Reader PICC 0
+
+Tap the SOURCE card (the one to copy FROM)...
+  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
+
+Source : NTAG215  UID 04 63 4E 39 7E 61 80
+         capability E1 10 3E 00, user pages 4-129
+         saved to backup_04634E397E6180.txt
+         24 of 126 user pages hold data
+
+Now remove it and tap the TARGET card (the one to copy TO)...
+  [waiting] Still seeing the source card - remove it.
+  [waiting] Unable to connect with protocol: T0 or T1. The device does not recognize the command. : The device does not recognize the command.  (0x00000016)
+  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
+
+Target : NTAG215  UID 04 D5 16 38 7E 61 80
+         capability E1 10 3E 00, user pages 4-129
+         saved to backup_04D516387E6180.txt
+
+About to write 24 page(s) to the target.
+Overwrite the TARGET card? [y/N] 
+Writing...
+  page   4 <- 03 5D D1 01
+  page   5 <- 59 55 04 64
+  page   6 <- 6F 63 73 2E
+  page   7 <- 67 6F 6F 67
+  page   8 <- 6C 65 2E 63
+  page   9 <- 6F 6D 2F 64
+  page  10 <- 6F 63 75 6D
+  page  11 <- 65 6E 74 2F
+  page  12 <- 64 2F 31 30
+  page  13 <- 5A 6B 7A 65
+  page  14 <- 72 76 6A 75
+  page  15 <- 69 47 39 47
+  page  16 <- 4F 4B 30 6A
+  page  17 <- 34 67 74 74
+  page  18 <- 71 36 55 58
+  page  19 <- 6B 73 52 6A
+  page  20 <- 53 54 4A 59
+  page  21 <- 79 36 41 30
+  page  22 <- 47 58 4D 61
+  page  23 <- 46 77 2F 65
+  page  24 <- 64 69 74 3F
+  page  25 <- 75 73 70 3D
+  page  26 <- 73 68 61 72
+  page  27 <- 69 6E 67 FE
+
+Verifying by reading the target back...
+
+  +------------------------------------------------------------+
+  | COPY COMPLETE                                              |
+  | 24 page(s) copied from 04634E397E6180 to 04D516387E6180.   |
+  +------------------------------------------------------------+
+
+  Note: the UID is not copied - the target keeps its own.
+
+This output was also saved to:
+  C:\Users\reaga\OneDrive\Desktop\NFC-Project\last_copy.txt
+
+Press Enter to close...

@@ -1,41 +1,53 @@
-URL to write : https://www.reaganzierke.com/development-portfolio/
-Prefix code  : 0x02 (https://www.)
-NDEF record  : D1 01 28 55 02 72 65 61 67 61 6E 7A 69 65 72 6B 65 2E 63 6F 6D 2F 64 65 76 65 6C 6F 70 6D 65 6E 74 2D 70 6F 72 74 66 6F 6C 69 6F 2F
-Bytes to tag : 48 (12 pages, starting at page 4)
+URL to write : https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing
+Prefix code  : 0x04 (https://)
+NDEF record  : D1 01 59 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 30 5A 6B 7A 65 72 76 6A 75 69 47 39 47 4F 4B 30 6A 34 67 74 74 71 36 55 58 6B 73 52 6A 53 54 4A 59 79 36 41 30 47 58 4D 61 46 77 2F 65 64 69 74 3F 75 73 70 3D 73 68 61 72 69 6E 67
+Bytes to tag : 96 (24 pages, starting at page 4)
 
 Using reader : ACS ACR1552 1S CL Reader PICC 0
 
 Present the card to the reader...
   [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
 Tag          : NTAG215 (135 pages)
-UID          : 04 05 A2 37 7E 61 80
+UID          : 04 63 4E 39 7E 61 80
 Capability   : E1 10 3E 00
 Usable space : 496 bytes
 
 Writing...
-  page   4 <- 03 2C D1 01
-  page   5 <- 28 55 02 72
-  page   6 <- 65 61 67 61
-  page   7 <- 6E 7A 69 65
-  page   8 <- 72 6B 65 2E
-  page   9 <- 63 6F 6D 2F
-  page  10 <- 64 65 76 65
-  page  11 <- 6C 6F 70 6D
-  page  12 <- 65 6E 74 2D
-  page  13 <- 70 6F 72 74
-  page  14 <- 66 6F 6C 69
-  page  15 <- 6F 2F FE 00
+  page   4 <- 03 5D D1 01
+  page   5 <- 59 55 04 64
+  page   6 <- 6F 63 73 2E
+  page   7 <- 67 6F 6F 67
+  page   8 <- 6C 65 2E 63
+  page   9 <- 6F 6D 2F 64
+  page  10 <- 6F 63 75 6D
+  page  11 <- 65 6E 74 2F
+  page  12 <- 64 2F 31 30
+  page  13 <- 5A 6B 7A 65
+  page  14 <- 72 76 6A 75
+  page  15 <- 69 47 39 47
+  page  16 <- 4F 4B 30 6A
+  page  17 <- 34 67 74 74
+  page  18 <- 71 36 55 58
+  page  19 <- 6B 73 52 6A
+  page  20 <- 53 54 4A 59
+  page  21 <- 79 36 41 30
+  page  22 <- 47 58 4D 61
+  page  23 <- 46 77 2F 65
+  page  24 <- 64 69 74 3F
+  page  25 <- 75 73 70 3D
+  page  26 <- 73 68 61 72
+  page  27 <- 69 6E 67 FE
 
 Verifying by reading the tag back...
-  raw bytes  : 03 2C D1 01 28 55 02 72 65 61 67 61 6E 7A 69 65 72 6B 65 2E 63 6F 6D 2F 64 65 76 65 6C 6F 70 6D 65 6E 74 2D 70 6F 72 74 66 6F 6C 69 6F 2F FE 00
-  decoded    : https://www.reaganzierke.com/development-portfolio/
+  raw bytes  : 03 5D D1 01 59 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 30 5A 6B 7A 65 72 76 6A 75 69 47 39 47 4F 4B 30 6A 34 67 74 74 71 36 55 58 6B 73 52 6A 53 54 4A 59 79 36 41 30 47 58 4D 61 46 77 2F 65 64 69 74 3F 75 73 70 3D 73 68 61 72 69 6E 67 FE
+  decoded    : https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing
 
-  +--------------------------------------------------------------------------------------------+
-  | SUCCESS - TAG READY                                                                        |
-  | Tap it with a phone and it will open https://www.reaganzierke.com/development-portfolio/   |
-  +--------------------------------------------------------------------------------------------+
+  +-----------------------------------------------------------------------------------------------------------------------------------------+
+  | SUCCESS - TAG READY                                                                                                                     |
+  | Tap it with a phone and it will open https://docs.google.com/document/d/10ZkzervjuiG9GOK0j4gttq6UXksRjSTJYy6A0GXMaFw/edit?usp=sharing   |
+  +-----------------------------------------------------------------------------------------------------------------------------------------+
 
 This output was also saved to:
-  C:\Users\reaga\OneDrive\Desktop\NFC\last_write.txt
+  C:\Users\reaga\OneDrive\Desktop\NFC-Project\last_write.txt
 
 Press Enter to close...

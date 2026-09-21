@@ -21,8 +21,10 @@ after the window closes.
 | --- | --- |
 | `Read NFC Card.bat` | Double-click: dump a tag. Output also in `last_read.txt`. |
 | `Write NFC Card.bat` | Double-click: write the default URL. Output also in `last_write.txt`. |
+| `Copy NFC Card.bat` | Double-click: copy one tag onto another. Output also in `last_copy.txt`. |
 | `nfc_read.py` | Identify a card and dump its memory, decoding any NDEF it finds. |
 | `nfc_write.py` | Write a URL (or vCard) to an NTAG / MIFARE Ultralight tag. |
+| `nfc_copy.py` | Copy the user data from one NTAG / Ultralight tag to another. |
 | `nfc_backup.py` | Dump a tag to a file, restore it, or compare against a dump. |
 | `_launch.bat` | Shared helper: finds Python, checks `pyscard`, runs a script. |
 | `outdated/` | Unrelated older project kept in the repo; ignore it. |
@@ -270,6 +272,27 @@ Notes:
   there rather than overwriting it. Back it up first, then re-run with
   `--force` if you really mean it.
 - `--vcard` is Android-only; iPhone ignores vCard records on tags.
+
+## Copying
+
+```bat
+Copy NFC Card.bat          REM tap the source, then the target
+Copy NFC Card.bat --yes    REM do not ask before overwriting the target
+```
+
+Tap the card to copy **from**, take it off, then tap the card to copy **to**.
+Both are saved as `backup_<UID>.txt` before anything is written, and the
+target is read back afterwards to check every page.
+
+- Only user memory (page 4 onward) is copied. The UID cannot be copied — it
+  is fixed at the factory — so the copy keeps its own UID.
+- Lock and configuration pages are never copied, so a copy can never lock
+  or password-protect the target.
+- If the target is blank, it is NDEF-formatted using its *own* size, not the
+  source's. A larger source can be copied to a smaller tag as long as the
+  data actually on it fits.
+- Pages on the target past the end of the copied data are cleared.
+- To undo: `py -3 nfc_backup.py --restore backup_<target UID>.txt`
 
 ## Backing up
 
