@@ -1,39 +1,47 @@
-URL to write : https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK
+URL to write : https://chapel-group-dash.ojthecat127.workers.dev/cfSPr5B05-xIIlwlKsnkbLVY/tech
 Prefix code  : 0x04 (https://)
-NDEF record  : D1 01 29 55 04 79 6F 75 74 75 2E 62 65 2F 64 51 77 34 77 39 57 67 58 63 51 3F 73 69 3D 44 78 66 66 6B 38 70 33 58 70 63 77 6E 72 73 4B
-Bytes to tag : 48 (12 pages, starting at page 4)
+NDEF record  : D1 01 48 55 04 63 68 61 70 65 6C 2D 67 72 6F 75 70 2D 64 61 73 68 2E 6F 6A 74 68 65 63 61 74 31 32 37 2E 77 6F 72 6B 65 72 73 2E 64 65 76 2F 63 66 53 50 72 35 42 30 35 2D 78 49 49 6C 77 6C 4B 73 6E 6B 62 4C 56 59 2F 74 65 63 68
+Bytes to tag : 80 (20 pages, starting at page 4)
 
 Using reader : ACS ACR1552 1S CL Reader PICC 0
 
 Present the card to the reader...
   [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
 Tag          : NTAG215 (135 pages)
-UID          : 04 D5 16 38 7E 61 80
+UID          : 04 63 4E 39 7E 61 80
 Capability   : E1 10 3E 00
 Usable space : 496 bytes
 
 Writing...
-  page   4 <- 03 2D D1 01
-  page   5 <- 29 55 04 79
-  page   6 <- 6F 75 74 75
-  page   7 <- 2E 62 65 2F
-  page   8 <- 64 51 77 34
-  page   9 <- 77 39 57 67
-  page  10 <- 58 63 51 3F
-  page  11 <- 73 69 3D 44
-  page  12 <- 78 66 66 6B
-  page  13 <- 38 70 33 58
-  page  14 <- 70 63 77 6E
-  page  15 <- 72 73 4B FE
+  page   4 <- 03 4C D1 01
+  page   5 <- 48 55 04 63
+  page   6 <- 68 61 70 65
+  page   7 <- 6C 2D 67 72
+  page   8 <- 6F 75 70 2D
+  page   9 <- 64 61 73 68
+  page  10 <- 2E 6F 6A 74
+  page  11 <- 68 65 63 61
+  page  12 <- 74 31 32 37
+  page  13 <- 2E 77 6F 72
+  page  14 <- 6B 65 72 73
+  page  15 <- 2E 64 65 76
+  page  16 <- 2F 63 66 53
+  page  17 <- 50 72 35 42
+  page  18 <- 30 35 2D 78
+  page  19 <- 49 49 6C 77
+  page  20 <- 6C 4B 73 6E
+  page  21 <- 6B 62 4C 56
+  page  22 <- 59 2F 74 65
+  page  23 <- 63 68 FE 00
 
 Verifying by reading the tag back...
-  raw bytes  : 03 2D D1 01 29 55 04 79 6F 75 74 75 2E 62 65 2F 64 51 77 34 77 39 57 67 58 63 51 3F 73 69 3D 44 78 66 66 6B 38 70 33 58 70 63 77 6E 72 73 4B FE
-  decoded    : https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK
+  raw bytes  : 03 4C D1 01 48 55 04 63 68 61 70 65 6C 2D 67 72 6F 75 70 2D 64 61 73 68 2E 6F 6A 74 68 65 63 61 74 31 32 37 2E 77 6F 72 6B 65 72 73 2E 64 65 76 2F 63 66 53 50 72 35 42 30 35 2D 78 49 49 6C 77 6C 4B 73 6E 6B 62 4C 56 59 2F 74 65 63 68 FE 00
+  decoded    : https://chapel-group-dash.ojthecat127.workers.dev/cfSPr5B05-xIIlwlKsnkbLVY/tech
 
-  +-----------------------------------------------------------------------------------------+
-  | SUCCESS - TAG READY                                                                     |
-  | Tap it with a phone and it will open https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK   |
-  +-----------------------------------------------------------------------------------------+
+  +------------------------------------------------------------------------------------------------------------------------+
+  | SUCCESS - TAG READY                                                                                                    |
+  | Tap it with a phone and it will open https://chapel-group-dash.ojthecat127.workers.dev/cfSPr5B05-xIIlwlKsnkbLVY/tech   |
+  +------------------------------------------------------------------------------------------------------------------------+
 
 This output was also saved to:
   C:\Users\reaga\OneDrive\Desktop\NFC-Project\last_write.txt

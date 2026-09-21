@@ -21,10 +21,12 @@ after the window closes.
 | --- | --- |
 | `Read NFC Card.bat` | Double-click: dump a tag. Output also in `last_read.txt`. |
 | `Write NFC Card.bat` | Double-click: write the default URL. Output also in `last_write.txt`. |
+| `Read Bank Card.bat` | Double-click: show what a contactless bank card reveals. Output also in `last_emv.txt`. |
 | `Copy NFC Card.bat` | Double-click: copy one tag onto another. Output also in `last_copy.txt`. |
 | `nfc_read.py` | Identify a card and dump its memory, decoding any NDEF it finds. |
 | `nfc_write.py` | Write a URL (or vCard) to an NTAG / MIFARE Ultralight tag. |
 | `nfc_copy.py` | Copy the user data from one NTAG / Ultralight tag to another. |
+| `nfc_emv.py` | Read the public EMV data on a contactless bank card. |
 | `nfc_backup.py` | Dump a tag to a file, restore it, or compare against a dump. |
 | `_launch.bat` | Shared helper: finds Python, checks `pyscard`, runs a script. |
 | `outdated/` | Unrelated older project kept in the repo; ignore it. |
@@ -272,6 +274,29 @@ Notes:
   there rather than overwriting it. Back it up first, then re-run with
   `--force` if you really mean it.
 - `--vcard` is Android-only; iPhone ignores vCard records on tags.
+
+## Reading a bank card
+
+```bat
+Read Bank Card.bat            REM card number masked everywhere
+Read Bank Card.bat --unmask   REM full number on screen, still masked in the log
+```
+
+Contactless payment cards are EMV smart cards, not storage tags, so there are
+no pages to dump. The script asks the card the same questions a shop terminal
+does and prints every data element it gets back, then a plain-English summary:
+card number, expiry, issuing country, currency, how many times it has been
+used, PIN tries left, and the card's own transaction log if it keeps one.
+
+- The CVV, the PIN and the card's secret keys are not readable - they are
+  either not on the chip or never leave it. Each tap produces a one-time
+  cryptogram, which is why this data cannot be used to clone a card.
+- Nothing is charged. The card's transaction counter goes up by one, the same
+  as any tap.
+- The middle digits of the card number are always masked in `last_emv.txt`,
+  and that file is in `.gitignore`, so the number cannot end up in git.
+- A phone wallet (Apple Pay / Google Pay) shows a stand-in "device" number,
+  not the real card number.
 
 ## Copying
 

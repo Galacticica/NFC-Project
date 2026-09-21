@@ -21,7 +21,7 @@ from smartcard.System import readers
 from smartcard.util import toHexString
 from smartcard.Exceptions import CardConnectionException, NoCardException
 
-DEFAULT_URL = "https://youtu.be/dQw4w9WgXcQ?si=Dxffk8p3XpcwnrsK"
+DEFAULT_URL = "https://chapel-group-dash.ojthecat127.workers.dev/cfSPr5B05-xIIlwlKsnkbLVY/tech"
 
 # NDEF URI prefixes; the index is stored as the first payload byte so common
 # scheme text does not eat into the tag's limited memory.
