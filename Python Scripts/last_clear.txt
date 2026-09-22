@@ -1,0 +1,62 @@
+Using reader : ACS ACR1552 1S CL Reader PICC 0
+
+Tap the card to CLEAR...
+  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
+
+Tag    : NTAG215  UID 04 63 4E 39 7E 61 80
+         capability E1 10 3E 00, user pages 4-129
+         24 of 126 user pages hold data:
+
+  page   4 | 03 4C D1 01 | .L..
+  page   5 | 48 55 04 63 | HU.c
+  page   6 | 68 61 70 65 | hape
+  page   7 | 6C 2D 67 72 | l-gr
+  page   8 | 6F 75 70 2D | oup-
+  page   9 | 64 61 73 68 | dash
+  page  10 | 2E 6F 6A 74 | .ojt
+  page  11 | 68 65 63 61 | heca
+  ... and 16 more
+
+  Backed up to backup_04634E397E6180.txt
+
+About to erase 24 page(s), leaving it NDEF formatted and empty.
+Erase this tag? [y/N] 
+Erasing...
+  page   4 <- 03 00 FE 00
+  page   5 <- 00 00 00 00
+  page   6 <- 00 00 00 00
+  page   7 <- 00 00 00 00
+  page   8 <- 00 00 00 00
+  page   9 <- 00 00 00 00
+  page  10 <- 00 00 00 00
+  page  11 <- 00 00 00 00
+  page  12 <- 00 00 00 00
+  page  13 <- 00 00 00 00
+  page  14 <- 00 00 00 00
+  page  15 <- 00 00 00 00
+  page  16 <- 00 00 00 00
+  page  17 <- 00 00 00 00
+  page  18 <- 00 00 00 00
+  page  19 <- 00 00 00 00
+  page  20 <- 00 00 00 00
+  page  21 <- 00 00 00 00
+  page  22 <- 00 00 00 00
+  page  23 <- 00 00 00 00
+  page  24 <- 00 00 00 00
+  page  25 <- 00 00 00 00
+  page  26 <- 00 00 00 00
+  page  27 <- 00 00 00 00
+
+Verifying by reading the tag back...
+
+  +----------------------------------------+
+  | TAG CLEARED                            |
+  | 24 page(s) erased on 04634E397E6180.   |
+  +----------------------------------------+
+
+  Undo with:  python nfc_backup.py --restore "backup_04634E397E6180.txt"
+
+This output was also saved to:
+  C:\Users\reaga\Desktop\NFC-Project\Python Scripts\last_clear.txt
+
+Press Enter to close...

@@ -28,9 +28,11 @@ files must stay in the same folder as the `.py` files.
 | `Write NFC Card.bat` | Double-click: write the default URL. Output also in `last_write.txt`. |
 | `Read Bank Card.bat` | Double-click: show what a contactless bank card reveals. Output also in `last_emv.txt`. |
 | `Copy NFC Card.bat` | Double-click: copy one tag onto another. Output also in `last_copy.txt`. |
+| `Clear NFC Card.bat` | Double-click: erase a tag so it reads as blank. Output also in `last_clear.txt`. |
 | `nfc_read.py` | Identify a card and dump its memory, decoding any NDEF it finds. |
 | `nfc_write.py` | Write a URL (or vCard) to an NTAG / MIFARE Ultralight tag. |
 | `nfc_copy.py` | Copy the user data from one NTAG / Ultralight tag to another. |
+| `nfc_clear.py` | Erase the user data on an NTAG / Ultralight tag. |
 | `nfc_emv.py` | Read the public EMV data on a contactless bank card. |
 | `nfc_backup.py` | Dump a tag to a file, restore it, or compare against a dump. |
 | `_launch.bat` | Shared helper: finds Python, checks `pyscard`, runs a script. |
@@ -326,6 +328,34 @@ target is read back afterwards to check every page.
   data actually on it fits.
 - Pages on the target past the end of the copied data are cleared.
 - To undo: `py -3 nfc_backup.py --restore backup_<target UID>.txt`
+
+## Clearing
+
+```bat
+Clear NFC Card.bat          REM tap the tag, confirm, erase
+Clear NFC Card.bat --yes    REM do not ask first
+```
+
+Tap the tag, check the preview of what is on it, and confirm. It is saved as
+`backup_<UID>.txt` before anything is written, then read back afterwards to
+check every page really is blank.
+
+- User memory (pages 4 to the end of the user area) is wiped. A formatted tag
+  gets an empty NDEF message, `03 00 FE 00`, on page 4 and zeros after it —
+  byte-for-byte how a brand-new tag reads, so phones see it as blank and
+  writable. An unformatted tag just gets zeros.
+- Only pages that actually hold data are written, so clearing is quick and a
+  tag that is already blank is left alone.
+- Page 4 is written first. If the tag slips off partway through, it already
+  reads as empty rather than holding a half-erased URL.
+- Some things cannot be cleared because the chip forbids it: the UID (pages
+  0-2), the capability container (page 3, one-time programmable — a
+  formatted tag stays formatted, which is the normal blank state), and any
+  lock bits. Locked pages are reported after the write rather than silently
+  skipped.
+- A password-protected tag is refused, since its pages cannot be read to
+  back up. Bank cards, phones and MIFARE Classic cards are never written to.
+- To undo: `py -3 nfc_backup.py --restore backup_<UID>.txt`
 
 ## Backing up
 
