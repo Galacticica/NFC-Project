@@ -21,7 +21,7 @@ from smartcard.System import readers
 from smartcard.util import toHexString
 from smartcard.Exceptions import CardConnectionException, NoCardException
 
-DEFAULT_URL = "https://www.bigbadtoystore.com/product/star-wars-black-series-archive-collection-luke-skywalker-imperial-light-cruiser-action-figure-154637?variation=308459"
+DEFAULT_URL = "https://www.reaganzierke.com/development-portfolio/wheel/"
 
 # NDEF URI prefixes; the index is stored as the first payload byte so common
 # scheme text does not eat into the tag's limited memory.
