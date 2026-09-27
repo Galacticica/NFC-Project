@@ -13,3 +13,6 @@ C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\refint\
 C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\ConsoleApp1.pdb
 C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\ConsoleApp1.genruntimeconfig.cache
 C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\ref\ConsoleApp1.dll
+C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\bin\Debug\net10.0\PCSC.dll
+C:\Users\reaga\Desktop\NFC-Project\C# test\ConsoleApp1\obj\Debug\net10.0\ConsoleA.CB28C8CC.Up2Date
