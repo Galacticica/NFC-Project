@@ -6,9 +6,8 @@ Bytes to tag : 152 (38 pages, starting at page 4)
 Using reader : ACS ACR1552 1S CL Reader PICC 0
 
 Present the card to the reader...
-  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
 Tag          : NTAG215 (135 pages)
-UID          : 04 D5 16 38 7E 61 80
+UID          : 04 64 6D A4 5E 61 80
 Capability   : E1 10 3E 00
 Usable space : 496 bytes
 
@@ -62,6 +61,6 @@ Verifying by reading the tag back...
   +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 This output was also saved to:
-  C:\Users\reaga\OneDrive\Desktop\NFC-Project\Python Scripts\last_write.txt
+  C:\Users\reaga\Desktop\NFC-Project\Python Scripts\last_write.txt
 
 Press Enter to close...

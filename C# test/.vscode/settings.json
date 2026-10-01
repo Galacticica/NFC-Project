@@ -1,0 +1,7 @@
+{
+    "dotnet.defaultSolution": "ConsoleApp1.sln",
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "csharp": "dotnet run --no-restore --project $dirWithoutTrailingSlash"
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "m1C9kR4tm1o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\reaga\\Desktop\\NFC-Project\\C# test\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\reaga\\.nuget\\packages\\pcsc\\7.0.1\\pcsc.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
