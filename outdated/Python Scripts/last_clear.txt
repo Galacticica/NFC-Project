@@ -3,23 +3,23 @@ Using reader : ACS ACR1552 1S CL Reader PICC 0
 Tap the card to CLEAR...
   [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
 
-Tag    : NTAG215  UID 04 63 4E 39 7E 61 80
+Tag    : NTAG215  UID 04 0C E2 37 7E 61 80
          capability E1 10 3E 00, user pages 4-129
-         24 of 126 user pages hold data:
+         21 of 126 user pages hold data:
 
-  page   4 | 03 4C D1 01 | .L..
-  page   5 | 48 55 04 63 | HU.c
-  page   6 | 68 61 70 65 | hape
-  page   7 | 6C 2D 67 72 | l-gr
-  page   8 | 6F 75 70 2D | oup-
-  page   9 | 64 61 73 68 | dash
-  page  10 | 2E 6F 6A 74 | .ojt
-  page  11 | 68 65 63 61 | heca
-  ... and 16 more
+  page   4 | 03 51 D1 01 | .Q..
+  page   5 | 4D 55 04 64 | MU.d
+  page   6 | 6F 63 73 2E | ocs.
+  page   7 | 67 6F 6F 67 | goog
+  page   8 | 6C 65 2E 63 | le.c
+  page   9 | 6F 6D 2F 64 | om/d
+  page  10 | 6F 63 75 6D | ocum
+  page  11 | 65 6E 74 2F | ent/
+  ... and 13 more
 
-  Backed up to backup_04634E397E6180.txt
+  Backed up to backup_040CE2377E6180.txt
 
-About to erase 24 page(s), leaving it NDEF formatted and empty.
+About to erase 21 page(s), leaving it NDEF formatted and empty.
 Erase this tag? [y/N] 
 Erasing...
   page   4 <- 03 00 FE 00
@@ -43,20 +43,17 @@ Erasing...
   page  22 <- 00 00 00 00
   page  23 <- 00 00 00 00
   page  24 <- 00 00 00 00
-  page  25 <- 00 00 00 00
-  page  26 <- 00 00 00 00
-  page  27 <- 00 00 00 00
 
 Verifying by reading the tag back...
 
   +----------------------------------------+
   | TAG CLEARED                            |
-  | 24 page(s) erased on 04634E397E6180.   |
+  | 21 page(s) erased on 040CE2377E6180.   |
   +----------------------------------------+
 
-  Undo with:  python nfc_backup.py --restore "backup_04634E397E6180.txt"
+  Undo with:  python nfc_backup.py --restore "backup_040CE2377E6180.txt"
 
 This output was also saved to:
-  C:\Users\reaga\Desktop\NFC-Project\Python Scripts\last_clear.txt
+  C:\Users\reaga\OneDrive\Desktop\NFC-Project\Python Scripts\last_clear.txt
 
 Press Enter to close...

@@ -1,0 +1,50 @@
+URL to write : https://docs.google.com/document/d/1u8wWAs0ThlQoZ_iHDrKiYCTQ1Mynfq35hjik-u-MBSo/view
+Prefix code  : 0x04 (https://)
+NDEF record  : D1 01 4D 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 75 38 77 57 41 73 30 54 68 6C 51 6F 5A 5F 69 48 44 72 4B 69 59 43 54 51 31 4D 79 6E 66 71 33 35 68 6A 69 6B 2D 75 2D 4D 42 53 6F 2F 76 69 65 77
+Bytes to tag : 84 (21 pages, starting at page 4)
+
+Using reader : ACS ACR1552 1S CL Reader PICC 0
+
+Present the card to the reader...
+  [waiting] Unable to connect: The smart card has been removed, so that further communication is not possible.  (0x80100069)
+Tag          : NTAG215 (135 pages)
+UID          : 04 89 08 A4 5E 61 80
+Capability   : E1 10 3E 00
+Usable space : 496 bytes
+
+Writing...
+  page   4 <- 03 51 D1 01
+  page   5 <- 4D 55 04 64
+  page   6 <- 6F 63 73 2E
+  page   7 <- 67 6F 6F 67
+  page   8 <- 6C 65 2E 63
+  page   9 <- 6F 6D 2F 64
+  page  10 <- 6F 63 75 6D
+  page  11 <- 65 6E 74 2F
+  page  12 <- 64 2F 31 75
+  page  13 <- 38 77 57 41
+  page  14 <- 73 30 54 68
+  page  15 <- 6C 51 6F 5A
+  page  16 <- 5F 69 48 44
+  page  17 <- 72 4B 69 59
+  page  18 <- 43 54 51 31
+  page  19 <- 4D 79 6E 66
+  page  20 <- 71 33 35 68
+  page  21 <- 6A 69 6B 2D
+  page  22 <- 75 2D 4D 42
+  page  23 <- 53 6F 2F 76
+  page  24 <- 69 65 77 FE
+
+Verifying by reading the tag back...
+  raw bytes  : 03 51 D1 01 4D 55 04 64 6F 63 73 2E 67 6F 6F 67 6C 65 2E 63 6F 6D 2F 64 6F 63 75 6D 65 6E 74 2F 64 2F 31 75 38 77 57 41 73 30 54 68 6C 51 6F 5A 5F 69 48 44 72 4B 69 59 43 54 51 31 4D 79 6E 66 71 33 35 68 6A 69 6B 2D 75 2D 4D 42 53 6F 2F 76 69 65 77 FE
+  decoded    : https://docs.google.com/document/d/1u8wWAs0ThlQoZ_iHDrKiYCTQ1Mynfq35hjik-u-MBSo/view
+
+  +-----------------------------------------------------------------------------------------------------------------------------+
+  | SUCCESS - TAG READY                                                                                                         |
+  | Tap it with a phone and it will open https://docs.google.com/document/d/1u8wWAs0ThlQoZ_iHDrKiYCTQ1Mynfq35hjik-u-MBSo/view   |
+  +-----------------------------------------------------------------------------------------------------------------------------+
+
+This output was also saved to:
+  C:\Users\reaga\OneDrive\Desktop\NFC-Project\Python Scripts\last_write.txt
+
+Press Enter to close...
