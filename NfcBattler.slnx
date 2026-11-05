@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NfcBattler.Core/NfcBattler.Core.csproj" />
+    <Project Path="src/NfcBattler.Cards/NfcBattler.Cards.csproj" />
+    <Project Path="src/NfcBattler.Terminal/NfcBattler.Terminal.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/NfcBattler.Tests/NfcBattler.Tests.csproj" />
+  </Folder>
+</Solution>

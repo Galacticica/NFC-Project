@@ -1,2 +1,10 @@
 last_emv.txt
 __pycache__/
+
+# .NET build output and local IDE state
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+TestResults/
