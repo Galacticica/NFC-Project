@@ -1,0 +1,770 @@
+[
+  {
+    "bitmapid": 0,
+    "moveid": 0,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 1,
+    "moveid": 2,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 2,
+    "moveid": 4,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 3,
+    "moveid": 6,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 4,
+    "moveid": 8,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 5,
+    "moveid": 10,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 6,
+    "moveid": 12,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 7,
+    "moveid": 14,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 8,
+    "moveid": 16,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 9,
+    "moveid": 18,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 10,
+    "moveid": 20,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 11,
+    "moveid": 22,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 12,
+    "moveid": 24,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 13,
+    "moveid": 26,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 14,
+    "moveid": 28,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 15,
+    "moveid": 30,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 16,
+    "moveid": 32,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 17,
+    "moveid": 34,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 18,
+    "moveid": 36,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 19,
+    "moveid": 38,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 20,
+    "moveid": 40,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 21,
+    "moveid": 42,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 22,
+    "moveid": 44,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 23,
+    "moveid": 46,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 24,
+    "moveid": 48,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 25,
+    "moveid": 50,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 26,
+    "moveid": 52,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 27,
+    "moveid": 54,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 28,
+    "moveid": 56,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 29,
+    "moveid": 58,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 30,
+    "moveid": 60,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 31,
+    "moveid": 62,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 32,
+    "moveid": 64,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 33,
+    "moveid": 66,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 34,
+    "moveid": 68,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 35,
+    "moveid": 70,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 36,
+    "moveid": 72,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 37,
+    "moveid": 74,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 38,
+    "moveid": 76,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 39,
+    "moveid": 78,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 40,
+    "moveid": 80,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 41,
+    "moveid": 82,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 42,
+    "moveid": 84,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 43,
+    "moveid": 86,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 44,
+    "moveid": 88,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 45,
+    "moveid": 90,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 46,
+    "moveid": 92,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 47,
+    "moveid": 94,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 48,
+    "moveid": 96,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 49,
+    "moveid": 98,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 50,
+    "moveid": 100,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 51,
+    "moveid": 102,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 52,
+    "moveid": 104,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 53,
+    "moveid": 106,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 54,
+    "moveid": 108,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 55,
+    "moveid": 110,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 56,
+    "moveid": 112,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 57,
+    "moveid": 114,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 58,
+    "moveid": 116,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 59,
+    "moveid": 118,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 60,
+    "moveid": 120,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 61,
+    "moveid": 122,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 62,
+    "moveid": 124,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 63,
+    "moveid": 126,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 64,
+    "moveid": 128,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 65,
+    "moveid": 130,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 66,
+    "moveid": 132,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 67,
+    "moveid": 134,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 68,
+    "moveid": 136,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 69,
+    "moveid": 138,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 70,
+    "moveid": 140,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 71,
+    "moveid": 142,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 72,
+    "moveid": 144,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 73,
+    "moveid": 146,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 74,
+    "moveid": 148,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 75,
+    "moveid": 150,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 76,
+    "moveid": 152,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 77,
+    "moveid": 154,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 78,
+    "moveid": 156,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 79,
+    "moveid": 158,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 80,
+    "moveid": 160,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 81,
+    "moveid": 162,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 82,
+    "moveid": 164,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 83,
+    "moveid": 166,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 84,
+    "moveid": 168,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 85,
+    "moveid": 170,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 86,
+    "moveid": 172,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 87,
+    "moveid": 174,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 88,
+    "moveid": 176,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 89,
+    "moveid": 178,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 90,
+    "moveid": 180,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 91,
+    "moveid": 182,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 92,
+    "moveid": 184,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 93,
+    "moveid": 186,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 94,
+    "moveid": 188,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 95,
+    "moveid": 190,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 96,
+    "moveid": 192,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 97,
+    "moveid": 194,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 98,
+    "moveid": 196,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 99,
+    "moveid": 198,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 100,
+    "moveid": 200,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 101,
+    "moveid": 202,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 102,
+    "moveid": 204,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 103,
+    "moveid": 206,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 104,
+    "moveid": 208,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 105,
+    "moveid": 210,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 106,
+    "moveid": 212,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 107,
+    "moveid": 214,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 108,
+    "moveid": 216,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 109,
+    "moveid": 218,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 110,
+    "moveid": 220,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 111,
+    "moveid": 222,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 112,
+    "moveid": 224,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 113,
+    "moveid": 226,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 114,
+    "moveid": 228,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 115,
+    "moveid": 230,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 116,
+    "moveid": 232,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 117,
+    "moveid": 234,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 118,
+    "moveid": 236,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 119,
+    "moveid": 238,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 120,
+    "moveid": 240,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 121,
+    "moveid": 242,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 122,
+    "moveid": 244,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 123,
+    "moveid": 246,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 124,
+    "moveid": 248,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 125,
+    "moveid": 250,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 126,
+    "moveid": 252,
+    "name": "TBD",
+    "attack_bonus": 0
+  },
+  {
+    "bitmapid": 127,
+    "moveid": 254,
+    "name": "TBD",
+    "attack_bonus": 0
+  }
+]

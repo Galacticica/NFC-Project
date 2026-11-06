@@ -15,11 +15,11 @@ public class Character
     public int Luck { get; set; } = 1;
     public int Money { get; set; } = 0;
     public int UnusedStatPoints { get; set; } = 0;
-    public byte Move1 { get; set; } = 0;
-    public byte Move2 { get; set; } = 0;
-    public byte Move3 { get; set; } = 0;
-    public byte Move4 { get; set; } = 0;
-    public byte[] UnlockedMovesBitmap { get; set; } = new byte[16];
+    public byte? Move1 { get; set; } = null;
+    public byte? Move2 { get; set; } = null;
+    public byte? Move3 { get; set; } = null;
+    public byte? Move4 { get; set; } = null;
+    public byte[] UnlockedMovesBitmap { get; set; } = [0b0000_0001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
 
@@ -27,6 +27,7 @@ public class Character
     {
         Name = name;
         Health = MaxHealth;
+        
     }
 }
 
