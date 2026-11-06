@@ -4,8 +4,9 @@ public class Character
 {
     // Properties hold the character's current values.
     public string Name { get; set; }
+    public byte ClassId { get; set; } = 0;
     public int Level { get; set; } = 0;
-    public int Experience { get; set; } = 0;
+    public uint Experience { get; set; } = 0;
     public int MaxHealth { get; set; } = 100;
     public int Health { get; set; }
     public int Attack { get; set; } = 10;
@@ -13,13 +14,13 @@ public class Character
     public int Speed { get; set; } = 1;
     public int Magic { get; set; } = 1;
     public int Luck { get; set; } = 1;
-    public int Money { get; set; } = 0;
+    public uint Money { get; set; } = 0;
     public int UnusedStatPoints { get; set; } = 0;
     public byte? Move1 { get; set; } = null;
     public byte? Move2 { get; set; } = null;
     public byte? Move3 { get; set; } = null;
     public byte? Move4 { get; set; } = null;
-    public byte[] UnlockedMovesBitmap { get; set; } = [0b0000_0001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    public byte[] UnlockedMovesBitmap { get; set; } = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 
 

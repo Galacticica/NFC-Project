@@ -1,12 +1,24 @@
-using Iot.Device.Ndef;
+using System.Text.Json;
 using NfcBattler.Cards;
+using NfcBattler.Core;
+using NfcBattler.Terminal;
 using PCSC.Exceptions;
 
 Console.WriteLine("Welcome to NFC Card Battler!");
+GameCatalog catalog;
+try
+{
+    catalog = new GameCatalog(Path.Combine(AppContext.BaseDirectory, "data"));
+}
+catch (Exception ex) when (ex is IOException or JsonException)
+{
+    Console.WriteLine($"Could not load game data: {ex.Message}");
+    return;
+}
 
 while (true)
 {
-    Console.WriteLine("\n1. Read an NFC card\n2. Write text to an NFC card\n3. Clear an NFC card\n0. Exit");
+    Console.WriteLine("\n1. Read character card\n2. Create character on a blank card\n3. Clear an NFC card\n0. Exit");
     Console.Write("Choose an option: ");
     string? choice = Console.ReadLine()?.Trim();
     if (choice is null or "0") break;
@@ -15,7 +27,6 @@ while (true)
         Console.WriteLine("Enter 1, 2, 3, or 0.");
         continue;
     }
-
     try
     {
         string[] readers = NfcCardSession.GetReaders()
@@ -25,74 +36,88 @@ while (true)
             Console.WriteLine("No contactless reader found. Plug in your ACS ACR1552U and try again.");
             continue;
         }
-
         int selected = 0;
         if (readers.Length > 1)
         {
             for (int i = 0; i < readers.Length; i++) Console.WriteLine($"{i + 1}. {readers[i]}");
             Console.Write("Select a reader (Enter to cancel): ");
-            if (!int.TryParse(Console.ReadLine(), out int number) || number < 1 || number > readers.Length)
-                continue;
+            if (!int.TryParse(Console.ReadLine(), out int number) || number < 1 || number > readers.Length) continue;
             selected = number - 1;
         }
-
-        string? text = null;
-        if (choice == "2")
-        {
-            Console.Write("Text to write (Enter to cancel): ");
-            text = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(text)) continue;
-        }
-
         Console.WriteLine($"Reader: {readers[selected]}");
-        Console.Write("Place an NTAG215 card on the reader, keep it there, and press Enter (or type cancel): ");
+        Console.Write("Place an NTAG215 card on the reader and press Enter (or type cancel). Keep it there until finished: ");
         string? ready = Console.ReadLine();
         if (ready is null || ready.Trim().Equals("cancel", StringComparison.OrdinalIgnoreCase)) continue;
-
         using var session = new NfcCardSession(readers[selected]);
         Console.WriteLine($"UID: {session.Uid} | Type: NTAG215");
-        var message = session.ReadMessage();
-        if (message is null) Console.WriteLine("No readable NDEF message found.");
-        else foreach (var record in message.Records)
+        if (choice == "3")
         {
-            if (TextRecord.IsTextRecord(record)) Console.WriteLine($"Text: {new TextRecord(record).Text}");
-            else if (UriRecord.IsUriRecord(record)) Console.WriteLine($"URL: {new UriRecord(record).FullUri}");
-            else Console.WriteLine($"Record payload (hex): {Convert.ToHexString(record.Payload ?? [])}");
-        }
-
-        if (choice == "1")
-        {
-            byte[] memory = session.ReadUserMemory();
-            for (int offset = 0; offset < memory.Length; offset += 4)
-                Console.WriteLine($"Page {4 + offset / 4,3}: {Convert.ToHexString(memory.AsSpan(offset, 4))}");
-        }
-        else if (choice == "2")
-        {
-            Console.WriteLine($"New text: {text}");
-            Console.Write("Replace this card's NDEF content? Type WRITE to confirm: ");
-            if (Console.ReadLine() != "WRITE")
-            {
-                Console.WriteLine("Write cancelled.");
-                continue;
-            }
-            session.WriteText(text!);
-            Console.WriteLine("Written and verified successfully.");
-        }
-        else
-        {
-            Console.Write("Erase all user data on this card? Type CLEAR to confirm: ");
-            if (Console.ReadLine() != "CLEAR")
-            {
-                Console.WriteLine("Clear cancelled.");
-                continue;
-            }
+            Console.Write("Erase all user data? Type CLEAR to confirm (character saves are protected): ");
+            if (Console.ReadLine() != "CLEAR") { Console.WriteLine("Clear cancelled."); continue; }
             session.Clear();
             Console.WriteLine("Cleared and verified successfully.");
+            continue;
         }
+
+        Character? character = session.LoadCharacter();
+        if (character is null)
+        {
+            Console.Write("This card is blank. Create a character? (y/N): ");
+            if (!string.Equals(Console.ReadLine()?.Trim(), "y", StringComparison.OrdinalIgnoreCase)) continue;
+            string name;
+            while (true)
+            {
+                Console.Write("Character name: 1-11 ASCII characters (Enter to cancel): ");
+                string? input = Console.ReadLine()?.Trim();
+                if (string.IsNullOrEmpty(input)) { name = ""; break; }
+                if (input.Length <= 11 && input.All(c => c >= 32 && c <= 126)) { name = input; break; }
+                Console.WriteLine("Use 1-11 printable ASCII characters.");
+            }
+            if (name.Length == 0) continue;
+            foreach (var entry in catalog.Classes.Values.Where(c => c.Name != "TBD"))
+                Console.WriteLine($"{entry.Id}: {entry.Name}");
+            Console.Write("Class ID (Enter for 0 / No Class): ");
+            string? classInput = Console.ReadLine();
+            if (classInput is null) continue;
+            byte classId = 0;
+            if (!string.IsNullOrWhiteSpace(classInput) &&
+                (!byte.TryParse(classInput, out classId) || !catalog.Classes.ContainsKey(classId)))
+            {
+                Console.WriteLine("Unknown class ID. Creation cancelled.");
+                continue;
+            }
+            character = new Character(name) { ClassId = classId };
+            PrintCharacter(character, catalog);
+            Console.Write("Write this character to the card? Type CREATE to confirm: ");
+            if (Console.ReadLine() != "CREATE") { Console.WriteLine("Creation cancelled."); continue; }
+            session.CreateCharacter(character);
+            character = session.LoadCharacter() ?? throw new IOException("The saved character could not be loaded.");
+            Console.WriteLine("Character saved and verified.");
+        }
+        PrintCharacter(character, catalog);
     }
-    catch (Exception ex) when (ex is PCSCException or IOException or ArgumentException or NotSupportedException or InvalidOperationException)
+    catch (Exception ex) when (ex is PCSCException or IOException or ArgumentException or
+        NotSupportedException or InvalidOperationException or OverflowException)
     {
         Console.WriteLine($"NFC operation failed: {ex.Message}");
-        Console.WriteLine("Keep the card on the reader and retry. If no card is present, place one first.");
+        Console.WriteLine("If a write was interrupted, read the card again to check its contents.");
+    }
+}
+
+static void PrintCharacter(Character character, GameCatalog catalog)
+{
+    Console.WriteLine($"\n--- {character.Name} ---");
+    Console.WriteLine($"Class: {catalog.ClassName(character.ClassId)} (ID {character.ClassId})");
+    Console.WriteLine($"Level: {character.Level} | XP: {character.Experience} | Money: {character.Money}");
+    Console.WriteLine($"HP: {character.Health}/{character.MaxHealth} | Unused stat points: {character.UnusedStatPoints}");
+    Console.WriteLine($"Base stats: ATK {character.Attack} | DEF {character.Defense} | SPD {character.Speed} | MAG {character.Magic} | LCK {character.Luck}");
+    byte?[] equipped = [character.Move1, character.Move2, character.Move3, character.Move4];
+    for (int i = 0; i < equipped.Length; i++) Console.WriteLine($"Move {i + 1}: {catalog.MoveName(equipped[i])}");
+    Console.WriteLine("Unlocked moves:");
+    for (int bit = 0; bit < 128; bit++)
+    {
+        if ((character.UnlockedMovesBitmap[bit / 8] & (1 << (bit % 8))) == 0) continue;
+        var move = catalog.Moves.Values.FirstOrDefault(m => m.BitmapId == bit);
+        Console.WriteLine(move is null ? $"  Unknown bitmap ID {bit}" : $"  {catalog.MoveName(move.MoveId)} [bitmap {bit}]");
     }
 }

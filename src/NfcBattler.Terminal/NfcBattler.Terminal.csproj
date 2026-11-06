@@ -6,6 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="../../data/*.json" Link="data/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../NfcBattler.Core/NfcBattler.Core.csproj" />
     <ProjectReference Include="../NfcBattler.Cards/NfcBattler.Cards.csproj" />
   </ItemGroup>

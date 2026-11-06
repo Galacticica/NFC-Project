@@ -65,6 +65,10 @@ public sealed class NfcCardSession : IDisposable
 
     public void Clear() => Ntag215Tools.Clear(card);
 
+    public NfcBattler.Core.Character? LoadCharacter() => new CharacterCardStore(card).Load();
+
+    public void CreateCharacter(NfcBattler.Core.Character character) => new CharacterCardStore(card).Create(character);
+
     public void WriteText(string text)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(text);

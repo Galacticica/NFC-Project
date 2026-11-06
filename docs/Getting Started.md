@@ -85,10 +85,12 @@ executable with a `Program.cs` entry point. `xunit` creates a test project.
 
 ## Current NFC menu
 
-Run the terminal application and choose **1** to read, **2** to write text,
+Run the terminal application and choose **1** to read a character, **2** to create a character,
 **3** to clear, or **0** to exit. Place your NTAG215 on the reader when prompted and leave it there
-until the operation finishes. Writing asks you to type `WRITE` after showing
-the card UID, existing NDEF content, and new text. It replaces the NDEF message.
+until the operation finishes. Both character options print an existing character
+or offer creation on a blank card. Enter a name (1-11 printable ASCII characters)
+and class ID, then type `CREATE` to save and verify. Names and move attack bonuses
+are looked up from the JSON files in `data/`; move IDs and bitmap IDs are separate.
 
 `Program.cs` handles the prompts. `NfcCardSession.cs` connects to the reader and
 uses Microsoft's NDEF and Ultralight library to read/write. `PcscTransceiver.cs`
@@ -102,4 +104,5 @@ preserves formatting and protection settings and refuses recognized game saves.
 GET_VERSION requires compatible ACR1552U firmware;
 if it fails or returns a truncated response, the tool stops with an error.
 Hardware compatibility and real writes must still be verified with your reader.
-Character saves and the remaining step 2 backup tool come later.
+The single-save layout is documented in `memory_layout.md`. The remaining step 2
+backup tool and gameplay come later.

@@ -30,16 +30,25 @@ dotnet test
 | `NfcBattler.Terminal` | Console entry point; references Core and Cards. |
 | `NfcBattler.Tests` | xUnit tests; references Core and Cards. |
 
-The terminal now offers **Read**, **Write text**, **Clear**, and **Exit**. It uses PCSC 7.0.1
+The terminal now offers **Read character**, **Create character**, **Clear**, and **Exit**. It uses PCSC 7.0.1
 and Microsoft's Iot.Device.Bindings 4.2.0 from the spec. Plug in the ACR1552U,
 choose an option, and follow the prompts with an NTAG215 card held on the reader.
-Read displays the UID, NDEF records, and user-memory pages. Write asks for text
-and explicit `WRITE` confirmation, then verifies the content by reading it back.
+Both character options first load the card. An existing character is printed;
+a blank card offers creation with a name and class, followed by `CREATE`
+confirmation. The saved character is read back to verify the write.
 
-Writing replaces the NDEF message and requires an already formatted, writable
-NTAG215. It never writes identity, formatting, lock, or configuration pages, and
-refuses to replace a recognized NFC Battler game save. It is a basic NFC text
-tool; character saves, battles, and the styled interface are still future work.
+Creation requires an already formatted, writable NTAG215. Existing characters,
+malformed saves, unsupported versions, and unrelated content are never replaced.
+Clear old text/URL content first if you want to use that card for a character.
+The terminal resolves class IDs and equipped/unlocked moves using
+`data/classes.json` and `data/moves.json`, copied beside the app during builds.
+Edit the source JSON files and rebuild to update names and move attack bonuses.
+
+Characters use one 64-byte NDEF MIME payload as defined in
+`docs/memory_layout.md`. Current health resets to saved maximum health on load.
+There is no backup slot or checksum; structural validation and read-back checks
+cannot recover an interrupted save or detect every possible data corruption.
+Battles and the styled interface are still future work.
 
 Clear asks you to type `CLEAR`, then erases all user pages (4-129), leaving an
 empty NDEF message. It reads back the full user area to verify the erase.

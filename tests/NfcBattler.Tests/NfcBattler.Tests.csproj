@@ -17,5 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="../../src/NfcBattler.Core/NfcBattler.Core.csproj" />
     <ProjectReference Include="../../src/NfcBattler.Cards/NfcBattler.Cards.csproj" />
+    <ProjectReference Include="../../src/NfcBattler.Terminal/NfcBattler.Terminal.csproj" />
   </ItemGroup>
 </Project>
