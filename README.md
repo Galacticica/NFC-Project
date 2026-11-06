@@ -30,12 +30,19 @@ dotnet test
 | `NfcBattler.Terminal` | Console entry point; references Core and Cards. |
 | `NfcBattler.Tests` | xUnit tests; references Core and Cards. |
 
-The terminal now offers **Read character**, **Create character**, **Clear**, and **Exit**. It uses PCSC 7.0.1
+The terminal now offers **Read character**, **Clear**, **Test update money**, and **Exit**. It uses PCSC 7.0.1
 and Microsoft's Iot.Device.Bindings 4.2.0 from the spec. Plug in the ACR1552U,
 choose an option, and follow the prompts with an NTAG215 card held on the reader.
-Both character options first load the card. An existing character is printed;
-a blank card offers creation with a name and class, followed by `CREATE`
+Read character first loads the card. An existing character is printed;
+a blank card offers creation with a name and class, followed by a y/n
 confirmation. The saved character is read back to verify the write.
+
+Option **3: Test update money** is a sample single-field update for an existing
+character. Enter the new money amount and confirm with y/n. `UpdateMoney` reads
+the current card, changes only the four money bytes in memory, and writes only
+4-byte pages whose contents differ. Neighboring bytes are preserved, and an
+unchanged amount causes no writes. The full user area is read back to verify
+the update. A field can span two pages; interrupted updates can be partial.
 
 Creation requires an already formatted, writable NTAG215. Existing characters,
 malformed saves, unsupported versions, and unrelated content are never replaced.
@@ -50,10 +57,10 @@ There is no backup slot or checksum; structural validation and read-back checks
 cannot recover an interrupted save or detect every possible data corruption.
 Battles and the styled interface are still future work.
 
-Clear asks you to type `CLEAR`, then erases all user pages (4-129), leaving an
+Clear asks you to type `CLEAR` (case-insensitive), then erases all user pages (4-129), leaving an
 empty NDEF message. It reads back the full user area to verify the erase.
-Formatting, identity, lock, and configuration pages are preserved. Recognized
-game saves are protected and reserved for the separate admin wipe tool.
+Formatting, identity, lock, and configuration pages are preserved. Saved
+characters are erased too; the card can then be used to create a new character.
 
 GET_VERSION must return all eight bytes through the ACR1552U's pass-through
 command. Unsupported firmware or truncated responses produce an error rather

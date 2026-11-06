@@ -69,6 +69,8 @@ public sealed class NfcCardSession : IDisposable
 
     public void CreateCharacter(NfcBattler.Core.Character character) => new CharacterCardStore(card).Create(character);
 
+    public int UpdateMoney(uint money) => new CharacterCardStore(card).UpdateMoney(money);
+
     public void WriteText(string text)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(text);

@@ -122,11 +122,63 @@ public class CharacterSaveTests
         Assert.Throws<IOException>(() => new CharacterCardStore(fake.Card).Create(new Character("Ember")));
     }
 
+    [Theory]
+    [InlineData(0u)]
+    [InlineData(1u)]
+    [InlineData(0x12345678u)]
+    [InlineData(uint.MaxValue)]
+    public void MoneyUpdateWritesOnlyChangedPagesAndPreservesEveryOtherByte(uint money)
+    {
+        var fake = new FakeCard();
+        var store = new CharacterCardStore(fake.Card);
+        store.Create(new Character("Ember") { Experience = 123, UnusedStatPoints = 7 });
+        byte[] original = (byte[])fake.Memory.Clone();
+        byte[] payload = CharacterSaveCodec.Encode(store.Load()!);
+        int payloadStart = fake.Memory.AsSpan().IndexOf(payload);
+        Assert.True(payloadStart >= 16);
+        byte[] expected = (byte[])original.Clone();
+        System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(expected.AsSpan(payloadStart + 9, 4), money);
+        byte[] changedPages = Enumerable.Range(4, 126)
+            .Where(page => !original.AsSpan(page * 4, 4).SequenceEqual(expected.AsSpan(page * 4, 4)))
+            .Select(page => (byte)page).ToArray();
+        fake.WrittenPages.Clear();
+
+        Assert.Equal(changedPages.Length, store.UpdateMoney(money));
+
+        Assert.Equal(changedPages, fake.WrittenPages);
+        Assert.Equal(expected, fake.Memory);
+        Assert.Equal(money, store.Load()!.Money);
+        fake.WrittenPages.Clear();
+        Assert.Equal(0, store.UpdateMoney(money));
+        Assert.Empty(fake.WrittenPages);
+    }
+
+    [Fact]
+    public void MoneyUpdateRejectsBlankAndMalformedCardsWithoutWriting()
+    {
+        var fake = new FakeCard();
+        var store = new CharacterCardStore(fake.Card);
+        Assert.Throws<InvalidOperationException>(() => store.UpdateMoney(42));
+        fake.Memory[16] = 0xFE;
+        Assert.Throws<InvalidDataException>(() => store.UpdateMoney(42));
+        Assert.Empty(fake.WrittenPages);
+    }
+
+    [Fact]
+    public void MoneyUpdateDetectsWritesThatDidNotReachCard()
+    {
+        var fake = new FakeCard();
+        var store = new CharacterCardStore(fake.Card);
+        store.Create(new Character("Ember"));
+        fake.IgnoreWrites = true;
+        Assert.Throws<IOException>(() => store.UpdateMoney(42));
+    }
+
     private sealed class FakeCard
     {
         public byte[] Memory { get; } = new byte[540];
         public List<byte> WrittenPages { get; } = [];
-        public bool IgnoreWrites { get; init; }
+        public bool IgnoreWrites { get; set; }
         public UltralightCard Card { get; }
 
         public FakeCard()

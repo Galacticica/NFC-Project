@@ -1,5 +1,4 @@
 using Iot.Device.Card.Ultralight;
-using Iot.Device.Ndef;
 using NfcBattler.Cards;
 using Xunit;
 
@@ -39,16 +38,23 @@ public class ClearCardTests
     }
 
     [Fact]
-    public void ClearProtectsGameSaveWithoutWriting()
+    public void ClearErasesGameSaveAndAllowsNewCharacter()
     {
         var fake = new FakeCard();
-        var message = new NdefMessage();
-        message.Records.Add(new MediaRecord("application/x-nfcbattler", new byte[128]));
-        Assert.True(fake.Card.WriteNdefMessage(message));
+        // Start with a blank user area, then create a real save.
+        Array.Clear(fake.Memory, 16, 504);
+        var store = new CharacterCardStore(fake.Card);
+        store.Create(new NfcBattler.Core.Character("Ember"));
         fake.WrittenPages.Clear();
 
-        Assert.Throws<IOException>(() => Ntag215Tools.Clear(fake.Card));
-        Assert.Empty(fake.WrittenPages);
+        Ntag215Tools.Clear(fake.Card);
+
+        Assert.Equal(Enumerable.Range(4, 126).Select(i => (byte)i), fake.WrittenPages);
+        Assert.Equal(new byte[] { 3, 0, 0xFE, 0 }, fake.Memory[16..20]);
+        Assert.All(fake.Memory[20..520], value => Assert.Equal(0, value));
+        Assert.Null(store.Load());
+        store.Create(new NfcBattler.Core.Character("New"));
+        Assert.Equal("New", store.Load()!.Name);
     }
 
     private sealed class FakeCard

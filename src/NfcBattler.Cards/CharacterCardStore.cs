@@ -1,3 +1,4 @@
+using System.Buffers.Binary;
 using Iot.Device.Card.Ultralight;
 using Iot.Device.Ndef;
 using NfcBattler.Core;
@@ -9,7 +10,12 @@ public sealed class CharacterCardStore(UltralightCard card)
     // Null means genuinely blank, not an unreadable or unrelated save.
     public Character? Load()
     {
-        byte[] memory = ReadMemory();
+        return Load(ReadMemory(), out _);
+    }
+
+    private static Character? Load(byte[] memory, out int payloadOffset)
+    {
+        payloadOffset = -1;
         if (memory.All(b => b == 0)) return null;
         if (memory.AsSpan(0, 4).SequenceEqual(new byte[] { 3, 0, 0xFE, 0 }) &&
             memory.AsSpan(4).ToArray().All(b => b == 0)) return null;
@@ -39,6 +45,16 @@ public sealed class CharacterCardStore(UltralightCard card)
                         new MediaRecord(r).PayloadType == CharacterSaveCodec.MimeType).ToArray();
                     if (saves.Length != 1)
                         throw new InvalidDataException("The card does not contain exactly one character save. Clear it before creating a character.");
+                    int recordOffset = offset;
+                    foreach (var record in message.Records)
+                    {
+                        if (ReferenceEquals(record, saves[0]))
+                        {
+                            payloadOffset = recordOffset + record.Length - (record.Payload?.Length ?? 0);
+                            break;
+                        }
+                        recordOffset += record.Length;
+                    }
                     return CharacterSaveCodec.Decode(saves[0].Payload ?? []);
                 }
                 offset += length;
@@ -67,6 +83,32 @@ public sealed class CharacterCardStore(UltralightCard card)
         var actual = Load();
         if (actual is null || !CharacterSaveCodec.Encode(actual).SequenceEqual(payload))
             throw new IOException("Character write could not be verified.");
+    }
+
+    // Sample single-field update. Returns the number of physical pages written.
+    public int UpdateMoney(uint money)
+    {
+        byte[] original = ReadMemory();
+        if (Load(original, out int payloadOffset) is null)
+            throw new InvalidOperationException("This card is blank. Create a character before updating money.");
+
+        byte[] expected = (byte[])original.Clone();
+        // Money occupies payload bytes 9-12; leave every other byte as read.
+        BinaryPrimitives.WriteUInt32LittleEndian(expected.AsSpan(payloadOffset + 9, 4), money);
+        int pagesWritten = 0;
+        for (int offset = 0; offset < expected.Length; offset += 4)
+        {
+            if (original.AsSpan(offset, 4).SequenceEqual(expected.AsSpan(offset, 4))) continue;
+            card.BlockNumber = (byte)(4 + offset / 4);
+            card.Command = UltralightCommand.Write4Bytes;
+            card.Data = expected.AsSpan(offset, 4).ToArray();
+            if (card.RunUltralightCommand() < 0)
+                throw new IOException("Money update failed. Read the card before retrying; the update may be incomplete.");
+            pagesWritten++;
+        }
+        if (pagesWritten > 0 && !ReadMemory().SequenceEqual(expected))
+            throw new IOException("Money update could not be verified. Read the card before retrying.");
+        return pagesWritten;
     }
 
     private byte[] ReadMemory()

@@ -18,7 +18,7 @@ catch (Exception ex) when (ex is IOException or JsonException)
 
 while (true)
 {
-    Console.WriteLine("\n1. Read character card\n2. Create character on a blank card\n3. Clear an NFC card\n0. Exit");
+    Console.WriteLine("\n1. Read character card\n2. Clear an NFC card\n3. Test update money\n0. Exit");
     Console.Write("Choose an option: ");
     string? choice = Console.ReadLine()?.Trim();
     if (choice is null or "0") break;
@@ -50,16 +50,41 @@ while (true)
         if (ready is null || ready.Trim().Equals("cancel", StringComparison.OrdinalIgnoreCase)) continue;
         using var session = new NfcCardSession(readers[selected]);
         Console.WriteLine($"UID: {session.Uid} | Type: NTAG215");
-        if (choice == "3")
+        if (choice == "2")
         {
-            Console.Write("Erase all user data? Type CLEAR to confirm (character saves are protected): ");
-            if (Console.ReadLine() != "CLEAR") { Console.WriteLine("Clear cancelled."); continue; }
+            Console.Write("Erase all user data, including any saved character? Type CLEAR to confirm: ");
+            if (!string.Equals(Console.ReadLine()?.Trim(), "CLEAR", StringComparison.OrdinalIgnoreCase))
+            { Console.WriteLine("Clear cancelled."); continue; }
             session.Clear();
             Console.WriteLine("Cleared and verified successfully.");
             continue;
         }
 
         Character? character = session.LoadCharacter();
+        if (choice == "3")
+        {
+            if (character is null)
+            {
+                Console.WriteLine("This card is blank. Create a character using option 1 first.");
+                continue;
+            }
+            Console.WriteLine($"{character.Name}'s current money: {character.Money}");
+            Console.Write("New money value (Enter to cancel): ");
+            string? moneyInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(moneyInput)) continue;
+            if (!uint.TryParse(moneyInput, out uint money))
+            {
+                Console.WriteLine("Enter a whole number from 0 to 4294967295.");
+                continue;
+            }
+            Console.Write($"Change money from {character.Money} to {money}? (y/N): ");
+            if (!string.Equals(Console.ReadLine()?.Trim(), "y", StringComparison.OrdinalIgnoreCase)) continue;
+            int pagesWritten = session.UpdateMoney(money);
+            Console.WriteLine(pagesWritten == 0
+                ? "Money is unchanged. No pages written."
+                : $"Money updated and verified. Wrote {pagesWritten} changed page(s) (4 bytes each).");
+            continue;
+        }
         if (character is null)
         {
             Console.Write("This card is blank. Create a character? (y/N): ");
@@ -88,8 +113,9 @@ while (true)
             }
             character = new Character(name) { ClassId = classId };
             PrintCharacter(character, catalog);
-            Console.Write("Write this character to the card? Type CREATE to confirm: ");
-            if (Console.ReadLine() != "CREATE") { Console.WriteLine("Creation cancelled."); continue; }
+            Console.Write("Write this character to the card? (y/N): ");
+            if (!string.Equals(Console.ReadLine()?.Trim(), "y", StringComparison.OrdinalIgnoreCase))
+            { Console.WriteLine("Creation cancelled."); continue; }
             session.CreateCharacter(character);
             character = session.LoadCharacter() ?? throw new IOException("The saved character could not be loaded.");
             Console.WriteLine("Character saved and verified.");

@@ -1,5 +1,4 @@
 using Iot.Device.Card.Ultralight;
-using Iot.Device.Ndef;
 
 namespace NfcBattler.Cards;
 
@@ -16,12 +15,6 @@ public static class Ntag215Tools
             throw new IOException("Could not read the card's formatting. Nothing was cleared.");
         if (card.Data[0] != 0xE1 || card.Data[1] != 0x10 || card.Data[2] != 0x3E || card.Data[3] != 0)
             throw new IOException("Clear requires an already NDEF-formatted, writable NTAG215.");
-
-        // The spec reserves deletion of characters for a separate admin tool.
-        if (card.TryReadNdefMessage(out var message) && message.Records.Any(record =>
-            MediaRecord.IsMediaRecord(record) &&
-            new MediaRecord(record).PayloadType == "application/x-nfcbattler"))
-            throw new IOException("This card contains a game save. Only the separate admin wipe tool may erase a character.");
 
         byte[] expected = new byte[504];
         // An empty NDEF message followed by a terminator; erase residual data too.
