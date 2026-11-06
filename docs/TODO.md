@@ -1,0 +1,9 @@
+- save methods and read methods are part of character class, not all seperate classes
+- don't split up folders just for the sake of it, keep them together if they are using the same dependencies
+- xunit tests?
+- Dependency injection 
+- Core
+- Applications
+- Infrastructure
+- Client
+- Microsoft.Extensions.DependencyInjection (nuget package)
