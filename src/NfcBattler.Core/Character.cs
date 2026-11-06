@@ -7,10 +7,11 @@ public class Character
     public int Level { get; set; } = 1;
     public int Experience { get; set; } = 0;
     public int MaxHealth { get; set; } = 100;
-    public int Health { get; set; } = 100;
+    public int Health { get; set; }
     public int Attack { get; set; } = 10;
     public int Defense { get; set; } = 5;
     public int Speed { get; set; } = 1;
+    public int Magic { get; set; } = 1;
     public int Luck { get; set; } = 1;
     public int Money { get; set; } = 0;
 
@@ -18,6 +19,7 @@ public class Character
     public Character(string name)
     {
         Name = name;
+        Health = MaxHealth;
     }
 }
 
